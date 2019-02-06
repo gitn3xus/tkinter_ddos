@@ -1,6 +1,16 @@
 import socket
 from threading import Thread
 from tkinter import *
+def settings():
+    def button():
+        it_works = Label(win, text="It works")
+        it_works.pack()
+    win = Tk()
+    win.minsize(width=400, height=300)
+    win.title("tkinter_ddos/settings")
+    button_test = Button(win, text="test", command=button)
+    button_test.pack()
+    win.mainloop()
 def form():
     host = input_host.get()
     global target
@@ -25,20 +35,18 @@ def start():
     for i in range(4):
         t = Thread(target=ddos)
         t.start()
-def stop():
-    for i in range(4):
-        t = Thread(target=ddos)
-        break
 window = Tk()
 window.title("tkinter_ddos")
 window.minsize(width=400, height=300)
 lable = Label(window, text="Target domian/ipv4.")
 input_host = Entry(window)
 dos_start_button = Button(window, text="start()", command=start)
-input_button = Button(window, text="submit", command=form)
+submit_button = Button(window, text="submit", command=form)
+button_setting = Button(window, text="settings", command=settings)
 lable.pack()
 input_host.pack()
-input_button.pack()
+submit_button.pack()
 input_host.pack()
 dos_start_button.pack()
+button_setting.pack()
 window.mainloop()
