@@ -1,6 +1,0 @@
--ouput box 
-	-def output_box():
--settings
-	-thread level select menu 
-		-thread level[4, 8, 12, 16]
-
