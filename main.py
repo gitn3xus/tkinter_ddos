@@ -36,6 +36,7 @@ lable = Label(window, text="Target domian/ipv4.")
 input_host = Entry(window)
 dos_start_button = Button(window, text="start()", command=start)
 input_button = Button(window, text="submit", command=form)
+#pack things
 lable.pack()
 input_host.pack()
 input_button.pack()
